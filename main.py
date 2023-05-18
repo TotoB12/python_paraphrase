@@ -12,16 +12,12 @@ def get_synonyms(word):
 
 def paraphrase_word(word):
     synonyms = get_synonyms(word)
-    if len(synonyms) > 0:
-        return synonyms[0]
-    else:
-        return word
+    return synonyms[0] if len(synonyms) > 0 else word
 
 def paraphrase_text(text):
     words = nltk.word_tokenize(text)
     paraphrased_words = [paraphrase_word(word) for word in words]
-    paraphrased_text = " ".join(paraphrased_words)
-    return paraphrased_text
+    return " ".join(paraphrased_words)
 
 with open("input.txt", "r") as input_file:
     text = input_file.read()
